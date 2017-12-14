@@ -1,0 +1,127 @@
+{% extends 'main/components/layout.html' %}
+{% load web_tags %}
+{% block content %}
+        
+        {% get_post_by_id post_id as post %}
+            <!-- Header section -->
+            <section id="header-section" class="imagebg cover cover-blocks bg--secondary" data-overlay="6">
+                <div class="background-image-holder hidden-xs" style="background: url(&quot;https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/cowork-6.jpg&quot;); opacity: 1;">
+                    <img alt="background" src="https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/cowork-6.jpg">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-5 ">
+                            <div>
+                                <h1>Blog</h1>
+                                <hr class="short">
+                                <p class="lead">
+                                    Información relacionada al ámbito de nuestro trabajo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section id="post" class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+                            <article>
+                                <div class="article__title text-center">
+                                    <h1 class="h2">{{ post.title }}</h1>
+                                    <span>{{ post.publish_at|date:'j' }} de {{ post.publish_at|date:'F Y' }} </span>
+                                    en 
+                                    <span>
+                                        <a href="#" class="category">Saneamiento Ambiental</a>
+                                    </span>
+                                </div>
+                                <!--end article title-->
+                                <div class="article__body">
+                                    <img alt="Image" src="{{post.image.url}}" />
+                                    {{post.content|safe}}
+                                </div>
+                                <div class="article__share text-center">
+                                    <a class="btn bg--facebook btn--icon" href="#">
+                                        <span class="btn__text">
+                                            <i class="socicon socicon-facebook"></i>
+                                            Compartir en Facebook
+                                        </span>
+                                    </a>
+                                    <a class="btn bg--twitter btn--icon" href="#">
+                                        <span class="btn__text">
+                                            <i class="socicon socicon-twitter"></i>
+                                            Compartir en Twitter
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+                            <!--end item-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            
+            <!-- mas articulos -->
+            <section class="bg--secondary space--sm">
+                <div class="container">
+                    <div class="row text-block">
+                        <div class="col-sm-12">
+                            <h3>Más publicaciones que pueden interesarte</h3>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <article class="feature feature-1">
+                                <a href="#" class="block">
+                                    <img alt="Image" src="https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/blog-2.jpg" />
+                                </a>
+                                <div class="feature__body boxed boxed--border">
+                                    <span>25 de Diciembre 2017</span>
+                                    <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</h5>
+                                    <a href="#">
+                                        Leer más
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sm-4">
+                            <article class="feature feature-1">
+                                <a href="#" class="block">
+                                    <img alt="Image" src="https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/blog-3.jpg" />
+                                </a>
+                                <div class="feature__body boxed boxed--border">
+                                    <span>25 de Diciembre 2017</span>
+                                    <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit dolor sit amet!</h5>
+                                    <a href="#">
+                                        Leer más
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sm-4">
+                            <article class="feature feature-1">
+                                <a href="#" class="block">
+                                    <img alt="Image" src="https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/blog-4.jpg" />
+                                </a>
+                                <div class="feature__body boxed boxed--border">
+                                    <span>25 de Diciembre 2017</span>
+                                    <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</h5>
+                                    <a href="#">
+                                        Leer más
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+       {% endblock %}

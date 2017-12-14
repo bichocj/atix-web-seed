@@ -1,0 +1,33 @@
+# Python
+__pycache__
+*.pyc
+
+# Coverage
+.coverage
+
+*.DS_Store
+
+# Static and media files in Django
+src/static/
+src/media/
+
+# Sass
+.sass-cache
+*.map
+
+# Database
+*.sqlite3
+
+
+# Coverage reports
+coverage_html_report/
+
+#dependecies
+src/requests/
+src/django-longerusernameandemail/
+src/pyculqi/
+
+#IDE
+.idea/
+.venv/
+

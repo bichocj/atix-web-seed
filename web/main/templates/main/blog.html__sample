@@ -1,0 +1,133 @@
+{% extends 'main/components/layout.html' %}
+{% load static %}
+
+{% load web_tags %}
+{% block content %}
+
+            <!-- Header section -->
+            <section id="header-section" class="imagebg cover cover-blocks bg--secondary" data-overlay="6">
+                <div class="background-image-holder hidden-xs" style="background: url(&quot;https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/cowork-6.jpg&quot;); opacity: 1;">
+                    <img alt="background" src="https://s3-sa-east-1.amazonaws.com/mediumrare-stack/1.5.0/stack/img/cowork-6.jpg">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-5 ">
+                            <div>
+                                <h1>Blog</h1>
+                                <hr class="short">
+                                <p class="lead">
+                                    Información relacionada al ámbito de nuestro trabajo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+            <section id="post-list" class="space--sm">
+                <div class="container">
+                    <div class="row">
+                        <!-- list-posts -->
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
+                            <div class="masonry masonry-blog-list">
+                                <!-- <div class="masonry-filter-container text-center">
+                                    <span>Category:</span>
+                                    <div class="masonry-filter-holder">
+                                        <div class="masonry__filters" data-filter-all-text="All Categories"></div>
+                                    </div>
+                                </div>
+                                <hr> -->
+                                <div class="masonry__container"
+>                                    {% get_last_posts 2 page|default:1 as posts %}
+                                    {% for post in posts %}
+                                    <article class="masonry__item" data-masonry-filter="Web Design">
+                                        <div class="article__title">
+                                            <a href="blog-post.html">
+                                                <h2>{{post.title}}</h2>
+                                            </a>
+                                            <span>{{post.publish_at|date:'j'}} de {{post.publish_at|date:'F'}} </span>
+                                             en 
+                                            <span>
+                                                <a href="#" class="category">{{post.category.name}}</a>
+                                            </span>
+                                        </div>
+                                        <!--end article title-->
+                                        <div class="article__body">
+                                            <a href="blog-post.html">
+                                                <img alt="Image" src="{{ post.image.url }}" />
+                                            </a>
+                                            <p>
+                                               {{post.content|safe|truncatewords_html:50}}
+                                            </p>
+                                            <a href="{% url 'main:show_post' post.id %}">Continuar leyendo &raquo;</a>
+                                        </div>
+                                    </article>
+                                    {% endfor %}
+                                </div>
+                                <!--end of masonry container-->
+                                {% include 'main/components/paginator.html' with objects=posts %}
+                            </div>
+                            <!--end masonry-->
+                        </div>
+
+                        <!-- sidebar -->
+                        <div class="col-xs-12 col-md-4 ">
+                            <br class="visible-xs visible-sm">
+                            <br class="visible-xs visible-sm">
+                            
+                            <div class="sidebar boxed boxed--border boxed--lg bg--secondary">
+                                <div class="sidebar__widget">
+                                    <h5>Buscar</h5>
+                                    <form>
+                                        <input type="text" name="query" placeholder="Ingrese su búsqueda aquí">
+                                    </form>
+                                </div>
+                                <!--end widget-->
+                                <div class="sidebar__widget">
+                                    <h5>Sobre el Blog</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore voluptas incidunt nobis, illum ipsum odit nihil aperiam? Totam, eum. Et dicta libero repellat voluptatum soluta, repellendus minima beatae praesentium explicabo!
+                                    </p>
+                                </div>
+                                <!--end widget-->
+                                <div class="sidebar__widget">
+                                    <h5>Categorias</h5>
+                                    <ul>
+                                        {% get_categories as categories %}
+                                        {% for c in categories %}
+                                        <li>
+                                            <a href="#">{{c.name}}</a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <!--end widget-->
+                                <div class="sidebar__widget">
+                                    <h5>Archivos</h5>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Mayo 2017</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Agosto 2017</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">octubre 2017</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Diiembre 2017</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--end widget-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            
+            {% endblock %}
