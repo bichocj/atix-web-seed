@@ -1,0 +1,82 @@
+{% extends 'accounts/layout.html' %}
+{% load i18n %}
+{% block content %}
+
+<tr>
+    <td valign="top" align="left">
+        <table width="520px" class="table_shrink" align="center">
+            <tr>
+                <td valign="top"
+                    style="padding-top: 20px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #205081; font-size: 32px; line-height: 40px; text-align:center; font-weight:bold;"
+                    align="center">
+                    {% trans 'Welcome to' %} {{ event_short_name }}
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td valign="top" align="left">
+        <table width="520" class="table_shrink" align="center">
+            <tr>
+                <td valign="top"
+                    style="padding-top: 0px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #333333; font-size: 14px; line-height: 20px; text-align:left; font-weight:none;"
+                    align="left">
+                    {% trans 'Hello' %} {{ first_name }},
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"
+                    style="padding-top: 10px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #333333; font-size: 14px; line-height: 20px; text-align:left; font-weight:none;"
+                    align="left">
+                    {% blocktrans with url_to_review=url_to_review event_short_name=event_short_name %}
+                        We are happy you have registered to {{ event_short_name }}, you can
+                        follow us  <a href="{{ url_to_review }}"
+                                      style="color: #3572b0; text-decoration:none;">
+                        here</a>
+                        .
+                    {% endblocktrans %}
+                </td>
+            </tr>
+        </table>
+        </custom>
+    </td>
+</tr>
+<tr>
+    <td valign="top" align="left">
+        <table width="100%">
+            <tr>
+                <td valign="top"
+                    style="padding-top: 10px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #333333; font-size: 14px; line-height: 20px; text-align:left; font-weight:none;"
+                    align="left">
+                    {{ message }}
+                </td>
+            </tr>
+        </table>
+        </custom>
+    </td>
+</tr>
+<tr>
+    <td valign="top" align="left">
+        <table width="100%">
+            <tr>
+                <td valign="top"
+                    style="padding-top: 10px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #333333; font-size: 14px; line-height: 20px; text-align:left; font-weight:none;"
+                    align="left">
+                    {% trans 'If you have any questions, contact us to ' %} {{ main_email }}.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"
+                    style="padding-bottom:30px; padding-top: 10px; font-family:Helvetica neue, Helvetica, Arial, Verdana, sans-serif; color: #333333; font-size: 14px; line-height: 20px; text-align:left; font-weight:none;"
+                    align="left">{% trans 'Cheers,' %}<br>
+                    {% blocktrans with event_short_name=event_short_name %}
+                        The {{ event_short_name }} team
+                    {% endblocktrans %}
+                </td>
+            </tr>
+        </table>
+        </custom>
+    </td>
+</tr>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'accounts/layout.html' %}
+{% load i18n %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+{% trans 'You are logged like ' %}
+    <b>{{ user.username }}</b>, <a href="{% url 'accounts:logout' %}">logout ?</a>
+
+{% else %}
+<form action="./?next={{ redirect_to|default:'' }}" method="post" class="">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{form.as_p}}
+
+    <button type="submit">
+        entrar
+    </button>
+    <br>
+    <div>
+        <a href="{% url 'accounts:password_reset' %}">¿Olvidaste tu contraseña noob?</a>
+    </div>
+</form>
+<script>
+    window.onload = function () {
+        if (document.getElementById("id_login").value !== '') {
+            document.getElementById("id_password").focus();
+        }
+    }
+</script>
+{% endif %}
+</body>
+
+{% endblock %}
