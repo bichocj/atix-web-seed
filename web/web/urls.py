@@ -22,6 +22,8 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^redactor/', include('redactor.urls')),
+    # unncomment next line to enable accontus urls
+    #url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^', include('main.urls', namespace='main')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

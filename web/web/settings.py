@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'redactor',
     'main',
+    # unncomment next line to enable accontus urls
+    #'accounts',
 ]
 
 MIDDLEWARE = [
